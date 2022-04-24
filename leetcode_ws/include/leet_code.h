@@ -27,7 +27,9 @@ public:
     vector<int> sortedSquares(vector<int>& nums);
     void rotate(vector<int>& nums, int k);
     vector<int> sortedSquaresnew(vector<int>& nums);
+    ListNode* transforArray2List(vector<int>& nums);
     ListNode* middleNode(ListNode* head);
+    void deleteList(ListNode* head);
 };
 
 #endif

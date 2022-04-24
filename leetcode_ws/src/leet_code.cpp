@@ -293,9 +293,37 @@ vector<int> LeetCode::sortedSquaresnew(vector<int>& nums) {
 
 }
 
-ListNode* LeetCode::transforArray2List(vector<int> nums) {
-    
+ListNode* LeetCode::transforArray2List(vector<int>& nums) {
+   if (nums.empty()) {
+       return nullptr;
+   } else {
+       ListNode *head = nullptr;
+       ListNode *cur_node = nullptr;
+       int index = 0;
+       while(index < nums.size()) {
+           if(head) {
+               ListNode *temp = new ListNode(nums[index]);
+               cur_node->next = temp;
+               cur_node = cur_node->next;
+           } else {
+               head = new ListNode(nums[index]);
+               cur_node = head;
+           }
+           index++;
+       }
+    return head;
+   }
 }
 ListNode* LeetCode::middleNode(ListNode* head) {
-    
+    return nullptr;
+}
+
+void LeetCode::deleteList(ListNode* head) {
+    ListNode *test_node = head;
+    ListNode *cur_node = head;
+    while(cur_node) {
+        ListNode *temp = cur_node;
+        cur_node = cur_node->next;
+        delete temp;
+    }
 }

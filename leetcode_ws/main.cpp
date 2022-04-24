@@ -31,6 +31,13 @@ void TestsortedSquares() {
     vector<int> nums = {-4,-1,0,3,10};
     leetCode.sortedSquaresnew(nums);
 }
+
+void TestMidNode() {
+    vector<int> nums{2,5,6,3};
+    auto head = leetCode.transforArray2List(nums);
+    leetCode.deleteList(head);
+}
+
 int main(int argc, char *argv[])
 {
     test_twoSum();
@@ -38,6 +45,7 @@ int main(int argc, char *argv[])
     TestsortedSquares();
     Testrotate();
     TestsortedSquaresnew();
+    TestMidNode();
     std::cout<<"come on livie" << std::endl;
     return 0;
 }
