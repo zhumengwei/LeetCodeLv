@@ -254,3 +254,48 @@ void LeetCode::rotate(vector<int>& nums, int k)
     nums.assign(temp.begin(),temp.end());
     return;
 }
+
+vector<int> LeetCode::sortedSquaresnew(vector<int>& nums) {
+   int pleft = 0,pright = 0;
+   int size = nums.size();
+   // corner case nums[0] > 0
+   if(nums[0]>=0) {
+       pright = 0;
+       pleft = -1;
+   } else if(nums[size -1]<=0) {
+       // nums.end <= 0
+       pleft = size - 1;
+       pright = size;
+   } else {
+       for (int i = 0;i < size; i++) {
+           if (nums[i] >= 0) {
+               pright = i;
+               pleft = i-1;
+               break;
+           }
+       }
+   }
+   // sort square by two ptr
+   vector<int> res;
+   const int kMaxVal = 100000001;
+   while(pleft >= 0 || pright < size) {
+       int val_left = pleft >= 0 ? std::pow(nums[pleft],2) : kMaxVal;
+       int val_right = pright < size ? std::pow(nums[pright],2) : kMaxVal;
+       if(val_left <= val_right) {
+           res.push_back(val_left);
+           pleft--;
+       } else {
+           res.push_back(val_right);
+           pright++;
+       }
+   }
+   return res;
+
+}
+
+ListNode* LeetCode::transforArray2List(vector<int> nums) {
+    
+}
+ListNode* LeetCode::middleNode(ListNode* head) {
+    
+}

@@ -15,7 +15,7 @@ void test_reverseString()
     leetCode.lengthOfLongestSubstring("abba");
     leetCode.checkInclusion("ab","a");
 }
-void TestsortedSquares()
+void TestsortedSquaresnew()
 {
     vector<int> nums = {-10000,-9999,-7,-5,0,0,10000};
     leetCode.sortedSquares(nums);
@@ -26,13 +26,18 @@ void Testrotate()
     vector<int> nums = {1,5,6,8,10,7};
     leetCode.rotate(nums,2);
 }
-int main()
+// int main()
+void TestsortedSquares() {
+    vector<int> nums = {-4,-1,0,3,10};
+    leetCode.sortedSquaresnew(nums);
+}
+int main(int argc, char *argv[])
 {
     test_twoSum();
     test_reverseString();
     TestsortedSquares();
     Testrotate();
+    TestsortedSquaresnew();
     std::cout<<"come on livie" << std::endl;
     return 0;
-
 }

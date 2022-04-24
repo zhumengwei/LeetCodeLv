@@ -7,7 +7,14 @@
 #include <cmath>
 
 using namespace std;
-typedef std::unordered_map<char,int> MyMap;
+typedef unordered_map<char,int> MyMap;
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 class LeetCode{
 public:
     LeetCode(){};
@@ -19,6 +26,8 @@ public:
     bool checkInclusion(string s1, string s2);
     vector<int> sortedSquares(vector<int>& nums);
     void rotate(vector<int>& nums, int k);
+    vector<int> sortedSquaresnew(vector<int>& nums);
+    ListNode* middleNode(ListNode* head);
 };
 
 #endif
