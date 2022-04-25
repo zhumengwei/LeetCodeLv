@@ -1,35 +1,31 @@
-#ifndef __LEET_CODE_H__
-#define __LEET_CODE_H__
+// Copyright 2022 livie
+#pragma once
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <algorithm>
 #include <cmath>
 
-using namespace std;
-typedef unordered_map<char,int> MyMap;
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
+#include "include/list_operation.h"
+
+typedef std::unordered_map<char, int> MyMap;
+
+namespace leetcode_study {
+
 class LeetCode{
-public:
-    LeetCode(){};
-    ~LeetCode(){};
-    vector<int> twoSum(vector<int>& numbers, int target);
-    void reverseString(vector<char>& s);
-    string reverseWords(string s);
-    int lengthOfLongestSubstring(string s);
-    bool checkInclusion(string s1, string s2);
-    vector<int> sortedSquares(vector<int>& nums);
-    void rotate(vector<int>& nums, int k);
-    vector<int> sortedSquaresnew(vector<int>& nums);
-    ListNode* transforArray2List(vector<int>& nums);
+ public:
+    LeetCode() {}
+    ~LeetCode() {}
+    std::vector<int> twoSum(std::vector<int>& numbers, int target);
+    void reverseString(std::vector<char>& s);
+    std::string reverseWords(std::string s);
+    int lengthOfLongestSubstring(std::string s);
+    bool checkInclusion(std::string s1, std::string s2);
+    std::vector<int> sortedSquares(const std::vector<int>& nums);
+    void rotate(std::vector<int>& nums, int k);
+    std::vector<int> sortedSquaresnew(std::vector<int>& nums);
+    ListNode* transforArray2List(const std::vector<int>& nums);
     ListNode* middleNode(ListNode* head);
     void deleteList(ListNode* head);
 };
-
-#endif
+}  // namespace leetcode_study

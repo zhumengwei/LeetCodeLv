@@ -8,7 +8,7 @@
             "name": "debug leetcode",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/weiliu/work/LeetCodeLv/build/LeetCodePractice",
+            "program": "/home/livie/study/leetcode/LeetCodeLv/build/LeetCodePractice",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
