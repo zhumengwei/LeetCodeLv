@@ -41,13 +41,43 @@ void TestMidNode() {
   list_temp.ClearList();
 }
 
+void TestDeleteNthNode() {
+  std::vector<int> nums{2, 5};
+  auto head = leetCode.transforArray2List(nums);
+  auto temp = list_temp.removeNthFromEnd(head,2);
+}
+
+void TestaddInList() {
+  std::vector<int> nums{9,3,7};
+  auto head1 = leetCode.transforArray2List(nums);
+  std::vector<int> nums1{6,3};
+  auto head2 = leetCode.transforArray2List(nums1);
+  auto res = list_temp.addInList(head1,head2);
+}
+
+void TestReverseList() {
+
+  std::vector<int> nums{2, 5,6,8,7};
+  auto head1 = leetCode.transforArray2List(nums);
+  auto head2 = list_temp.reverseList(head1);
+}
+void TestDeleteRepeateEle() {
+
+  std::vector<int> nums{1,1,1,2,3,3,5,5,6,8,7};
+  auto head1 = leetCode.transforArray2List(nums);
+  auto head2 = list_temp.deleteDuplicates(head1);
+}
 int main(int argc, char *argv[]) {
-  test_twoSum();
-  test_reverseString();
-  TestsortedSquares();
-  Testrotate();
-  TestsortedSquaresnew();
-  TestMidNode();
+//   test_twoSum();
+//   test_reverseString();
+//   TestsortedSquares();
+//   Testrotate();
+//   TestsortedSquaresnew();
+//   TestMidNode();
+    // TestDeleteNthNode();
+    // TestaddInList();
+    TestDeleteRepeateEle();
+    // TestReverseList();
   std::cout << "come on livie" << std::endl;
   return 0;
 }

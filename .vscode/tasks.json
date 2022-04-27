@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "build leetcode project",
-            "command": "cd /home/livie/study/leetcode/LeetCodeLv/build && make",
+            "command": "cd /home/weiliu28/study/LeetCodeLv/build && make",
             "options": {
                 "cwd": "${fileDirname}"
             },

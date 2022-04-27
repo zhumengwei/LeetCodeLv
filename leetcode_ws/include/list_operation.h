@@ -26,6 +26,10 @@ class ListOperation {
     ListNode* mergeKLists(vector<ListNode *> &lists);
     ListNode* FindKthToTail(ListNode* pHead, int k);
     ListNode* removeNthFromEnd(ListNode* head, int n);
+    ListNode* addInList(ListNode* head1, ListNode* head2);
+    ListNode* reverseList(ListNode* head);
+    ListNode* sortInList(ListNode* head);
+     ListNode* deleteDuplicates(ListNode* head);
  private:
     ListNode *head_;
     int node_num_;
