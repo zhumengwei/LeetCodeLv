@@ -1,6 +1,7 @@
 // Copyright 2022 livie
 #pragma once
 #include <vector>
+#include <algorithm>
 
 using std::vector;
 namespace leetcode_study {
@@ -21,6 +22,10 @@ class ListOperation {
     void ClearList();
     void PrintListNode();
     ListNode* GetMidNode();
+    ListNode* Merge(ListNode* pHead1, ListNode* pHead2);
+    ListNode* mergeKLists(vector<ListNode *> &lists);
+    ListNode* FindKthToTail(ListNode* pHead, int k);
+    ListNode* removeNthFromEnd(ListNode* head, int n);
  private:
     ListNode *head_;
     int node_num_;
