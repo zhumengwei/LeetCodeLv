@@ -1,19 +1,19 @@
 #include "../include/leet_code.h"
 
 
-vector<int> LeetCode::twoSum(vector<int>& numbers, int target)
+std::vector<int> LeetCode::twoSum(std::vector<int>& numbers, int target)
 {
-    vector<int> result;
+    std::vector<int> result;
     
-        for(vector<int>::iterator iter = numbers.begin();iter!= numbers.end();++iter)
+        for(std::vector<int>::iterator iter = numbers.begin();iter!= numbers.end();++iter)
         {
             int searchVal = target - *iter;
-            vector<int>::iterator iter1 = iter +1;
-            vector<int>::iterator iter2 = numbers.end()-1;
+            std::vector<int>::iterator iter1 = iter +1;
+            std::vector<int>::iterator iter2 = numbers.end()-1;
             
             while(iter1<iter2-1)
             {
-                vector<int>::iterator miditer = iter1+static_cast<int>((iter2-iter1)/2);
+                std::vector<int>::iterator miditer = iter1+static_cast<int>((iter2-iter1)/2);
                 if(*miditer == searchVal)
                 {
                     result.push_back(iter - numbers.begin()+1);
@@ -45,7 +45,7 @@ vector<int> LeetCode::twoSum(vector<int>& numbers, int target)
         return result;
 }
 
-void LeetCode::reverseString(vector<char>& s)
+void LeetCode::reverseString(std::vector<char>& s)
 {
     auto iter1 = s.begin();
     auto iter2 = s.end()-1;
@@ -64,7 +64,7 @@ void LeetCode::reverseString(vector<char>& s)
 //     auto iter1 = s.begin();
     
 // }
-int LeetCode::lengthOfLongestSubstring(string s)
+int LeetCode::lengthOfLongestSubstring(std::string s)
 {
     std::unordered_map<char,int> temp_map;
     int len = s.length();
@@ -88,12 +88,12 @@ int LeetCode::lengthOfLongestSubstring(string s)
     return max_length;
 }
 //
-bool LeetCode::checkInclusion(string s1, string s2)
+bool LeetCode::checkInclusion(std::string s1, std::string s2)
 {
     int len1 = s1.length();
     int len2 = s2.length();
     if(len1 > len2) return false;
-    vector<int> cnt1(26,0),cnt2(26,0);
+    std::vector<int> cnt1(26,0),cnt2(26,0);
     for(int i=0;i<len1;i++)
     {
         ++cnt1[s1[i]-'a'];
@@ -186,10 +186,10 @@ bool LeetCode::checkInclusion(string s1, string s2)
     // return res;
 }
 
-vector<int> LeetCode::sortedSquares(vector<int>& nums)
+std::vector<int> LeetCode::sortedSquares(std::vector<int>& nums)
 {
     int size = nums.size();
-    vector<int> res;
+    std::vector<int> res;
     int pt1 = -1;
     int pt2 = size;
     //find the frist pos bigger than zero
@@ -230,14 +230,14 @@ vector<int> LeetCode::sortedSquares(vector<int>& nums)
     return res;
 }
 
-void LeetCode::rotate(vector<int>& nums, int k)
+void LeetCode::rotate(std::vector<int>& nums, int k)
 {
     int size = nums.size();
     if(k%size == 0)
     {
         return;
     }
-    vector<int> temp;
+    std::vector<int> temp;
     int pt1 = 0;
     int pt2 = size - k;
     int pt = pt2;
@@ -255,7 +255,7 @@ void LeetCode::rotate(vector<int>& nums, int k)
     return;
 }
 
-vector<int> LeetCode::sortedSquaresnew(vector<int>& nums) {
+std::vector<int> LeetCode::sortedSquaresnew(std::vector<int>& nums) {
    int pleft = 0,pright = 0;
    int size = nums.size();
    // corner case nums[0] > 0
@@ -276,7 +276,7 @@ vector<int> LeetCode::sortedSquaresnew(vector<int>& nums) {
        }
    }
    // sort square by two ptr
-   vector<int> res;
+   std::vector<int> res;
    const int kMaxVal = 100000001;
    while(pleft >= 0 || pright < size) {
        int val_left = pleft >= 0 ? std::pow(nums[pleft],2) : kMaxVal;
@@ -293,8 +293,14 @@ vector<int> LeetCode::sortedSquaresnew(vector<int>& nums) {
 
 }
 
-ListNode* LeetCode::transforArray2List(vector<int> nums) {
-    
+ListNode* LeetCode::transforArray2List(std::vector<int> nums) {
+    if(nums.empty()) {
+        return nullptr;
+    }
+    int index = 0;
+    while(index < nums.size()) {
+        
+    }
 }
 ListNode* LeetCode::middleNode(ListNode* head) {
     
