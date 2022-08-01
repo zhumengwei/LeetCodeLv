@@ -3,7 +3,9 @@
         {
             "type": "shell",
             "label": "build leetcode project",
-            "command": "cd /home/weiliu/work/LeetCodeLv/build && cmake ../leetcode_ws && make",
+            // "command": "cd /home/weiliu/work/LeetCodeLv/build && cmake ../leetcode_ws && make",
+            "command": "cd ${workspaceRoot}/build && cmake ../leetcode_ws && make",
+
             "options": {
                 "cwd": "${fileDirname}"
             },

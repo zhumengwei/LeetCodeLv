@@ -1,6 +1,7 @@
-#include "../include/leet_code.h"
+#include "include/leet_code.h"
 
 
+namespace leetcode_study {
 std::vector<int> LeetCode::twoSum(std::vector<int>& numbers, int target)
 {
     std::vector<int> result;
@@ -304,4 +305,5 @@ ListNode* LeetCode::transforArray2List(std::vector<int> nums) {
 }
 ListNode* LeetCode::middleNode(ListNode* head) {
     
+}
 }

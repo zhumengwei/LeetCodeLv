@@ -1,6 +1,10 @@
 #include "include/leet_code.h"
 #include "include/niu_ke.h"
 #include <iostream>
+
+#include "include/list_operation.h"
+using leetcode_study::LeetCode;
+using leetcode_study::ListOperation;
 LeetCode leetCode;
 using namespace niu_ke;
 void test_twoSum()
@@ -34,7 +38,7 @@ void TestsortedSquares() {
     leetCode.sortedSquaresnew(nums);
 }
 void NiuKeTest1() {
-    ListOperation list_test;
+    niu_ke::ListOperation list_test;
     std::vector<int> arr{2,5,6,7,9,10,11};
     ListNode* temp = list_test.CreatListByArray(arr);
     // ListNode* res = list_test.ReverseList(temp);
@@ -44,7 +48,7 @@ void NiuKeTest1() {
 }
 void NiuKeTest2() {
     // two value sum
-    ListOperation list_test;
+    niu_ke::ListOperation list_test;
     // std::vector<int> arr1{5,9,7,5,7,1,2,6,4,2,7,8,9,6,1,6,6,1,1,4,2,9,5,5,0,4,6,3,0,4,3,5,6,7,0,5,5,4,4,0};
     // std::vector<int> arr2{1,3,2,5,0,6,0,2,1,4,3,9,3,0,9,9,0,3,1,6,5,7,8,6,2,3,8,5,0,9,7,9,4,5,9,9,4,9,3,6};
     std::vector<int> arr1{9,3,7};
@@ -59,7 +63,7 @@ void NiuKeTest2() {
 }
 
 void NiuKeTest3() {
-    ListOperation list_test;
+    niu_ke::ListOperation list_test;
     std::vector<int> arr{1,3,2,4,5};
     ListNode* temp = list_test.CreatListByArray(arr);
     list_test.sortInList(temp);
@@ -67,7 +71,7 @@ void NiuKeTest3() {
 }
 
 void NiuKeTest4() {
-    ListOperation list_test;
+    niu_ke::ListOperation list_test;
     std::vector<int> arr{1,2,3,4,5};
     ListNode* temp = list_test.CreatListByArray(arr);
     list_test.oddEvenList(temp);
@@ -75,13 +79,13 @@ void NiuKeTest4() {
 }
 
 void BinarySearchTest1() {
-    BinarySearch binary_search;
+    niu_ke::BinarySearch binary_search;
     std::vector<int> temp = {2,4,1,2,7,8,4};
     int index =binary_search.findPeakElement(temp);
 }
 
 void BinarySearchTest2() {
-    BinarySearch binary_search;
+    niu_ke::BinarySearch binary_search;
     // std::vector<std::vector<int> > temp = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
     std::vector<std::vector<int> > temp{{1,2,8,9},{4,7,12,15}};
     bool res = binary_search.Find(7,temp);
@@ -89,7 +93,7 @@ void BinarySearchTest2() {
 
 void SortMethodTest1() {
     std::vector<int> temp = {1,3,2,5,0};
-    SortMethod sort;
+    niu_ke::SortMethod sort;
     // sort.MpSort(temp);
     sort.InsertSort(temp);
 }

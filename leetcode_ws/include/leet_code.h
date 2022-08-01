@@ -1,5 +1,5 @@
-#ifndef __LEET_CODE_H__
-#define __LEET_CODE_H__
+// Copyright 2022 livie
+#pragma once
 #include <vector>
 #include <string>
 #include <unordered_map>
@@ -8,7 +8,7 @@
 #include "common.h"
 
 typedef std::unordered_map<char,int> MyMap;
-
+namespace leetcode_study {
 class LeetCode{
 public:
     LeetCode(){};
@@ -24,5 +24,4 @@ public:
     ListNode* middleNode(ListNode* head);
     ListNode* transforArray2List(std::vector<int> nums);
 };
-
-#endif
+}  // namespace leetcode_study
