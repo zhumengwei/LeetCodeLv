@@ -98,6 +98,18 @@ void SortMethodTest1() {
     sort.InsertSort(temp);
 }
 
+void TreeTest1() {
+    niu_ke::Tree tree;
+    TreeNode *head = tree.CreateTreeSample1();
+    TreeNode *head1 = tree.CreateTreeSample();
+    // auto res = tree.preorderTraversal(head);
+    // auto res = tree.preorderTraversaldd(head);
+    // auto res = tree.postorderTraversal(head);
+    // bool res = tree.isSymmetrical(head);
+    // tree.mergeTrees(head,head1);
+    tree.isValidBST(head);
+}
+
 int main(int argc, char *argv[])
 {
     // test_twoSum();
@@ -109,7 +121,8 @@ int main(int argc, char *argv[])
     // NiuKeTest4();
     // BinarySearchTest1();
     // SortMethodTest1();
-    BinarySearchTest2();
+    // BinarySearchTest2();
+    TreeTest1();
     std::cout<<"come on livie" << std::endl;
     return 0;
 }

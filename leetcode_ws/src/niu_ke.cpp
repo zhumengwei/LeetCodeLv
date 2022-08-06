@@ -1,6 +1,9 @@
 #include "../include/niu_ke.h"
 
 #include <iostream>
+#include <queue>
+#include <stack>
+
 namespace niu_ke {
 
 ListNode *ListOperation::ReverseList(ListNode *pHead) {
@@ -269,37 +272,37 @@ int BinarySearch::findPeakElement(std::vector<int> &nums) {
 }
 
 bool BinarySearch::Find(int target, std::vector<std::vector<int> > array) {
-    // if (array.empty()) return false;
-    // for (auto it : array) {
-    //     if(it.front() <= target && it.back() >= target ) {
-    //         int left = 0, right = it.size() - 1;
-    //         while (left <= right) {
-    //             int mid = left + ((right - left)>>1);
-    //             if(it[mid] == target) {
-    //                 return true;
-    //             } else {
-    //                 if(it[mid] > target) {
-    //                     right = mid -1;
-    //                 } else {
-    //                     left = mid + 1;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
-    // return false;
-    int row = array.size()-1, col = 0;
-    if(!(array.empty() && array[0].empty())) return false;
-    while (row >= 0 && col <= array[0].size()-1) {
-        int temp = array.at(row).at(col);
-        if (temp == target)
-            return true;
-        else if(temp > target)
-            --row;
-        else
-            ++col;
-    }
-    return false;
+  // if (array.empty()) return false;
+  // for (auto it : array) {
+  //     if(it.front() <= target && it.back() >= target ) {
+  //         int left = 0, right = it.size() - 1;
+  //         while (left <= right) {
+  //             int mid = left + ((right - left)>>1);
+  //             if(it[mid] == target) {
+  //                 return true;
+  //             } else {
+  //                 if(it[mid] > target) {
+  //                     right = mid -1;
+  //                 } else {
+  //                     left = mid + 1;
+  //                 }
+  //             }
+  //         }
+  //     }
+  // }
+  // return false;
+  int row = array.size() - 1, col = 0;
+  if (!(array.empty() && array[0].empty())) return false;
+  while (row >= 0 && col <= array[0].size() - 1) {
+    int temp = array.at(row).at(col);
+    if (temp == target)
+      return true;
+    else if (temp > target)
+      --row;
+    else
+      ++col;
+  }
+  return false;
 }
 
 void SortMethod::SelectionSort(std::vector<int> &nums) {
@@ -326,8 +329,7 @@ void SortMethod::MpSort(std::vector<int> &nums) {
 
 void SortMethod::InsertSort(std::vector<int> &nums) {
   for (int i = 1; i < nums.size(); ++i) {
-    for (int j = i-1; j >= 0 && nums[j] > nums[j+1]; --j)
-        swap(nums,j,j+1);
+    for (int j = i - 1; j >= 0 && nums[j] > nums[j + 1]; --j) swap(nums, j, j + 1);
   }
 }
 
@@ -336,4 +338,259 @@ void SortMethod::swap(std::vector<int> &nums, int i, int j) {
   nums[i] = nums[j];
   nums[j] = temp;
 }
+
+Tree::Tree() {
+  // root node
+  head_ = new TreeNode(1);
+  TreeNode *cur = head_;
+  head_->left = new TreeNode(2);
+  head_->right = new TreeNode(3);
+  cur = head_->left;
+  cur->left = new TreeNode(4);
+  cur->right = new TreeNode(5);
+  cur = head_->right;
+  cur->left = new TreeNode(6);
+  cur->right = new TreeNode(7);
 }
+
+Tree::~Tree() {}
+
+TreeNode *Tree::CreateTreeSample() {
+  TreeNode *head = new TreeNode(1);
+  TreeNode *cur = head;
+  head->left = new TreeNode(2);
+  head->right = new TreeNode(3);
+  cur = head->left;
+  cur->left = new TreeNode(4);
+  cur->right = new TreeNode(5);
+  cur = head->right;
+  cur->left = new TreeNode(6);
+  cur->right = new TreeNode(7);
+  return head;
+}
+TreeNode *Tree::CreateTreeSample1() {
+  TreeNode *head = new TreeNode(3);
+  TreeNode *cur = head;
+  head->left = new TreeNode(2);
+  head->right = new TreeNode(5);
+  cur = head->left;
+  cur->left = new TreeNode(1);
+  cur->right = new TreeNode(4);
+  return head;
+}
+std::vector<int> Tree::preorderTraversal(TreeNode *root) {
+  std::vector<int> res;
+  std::stack<TreeNode *> tree;
+  tree.push(root);
+  while (!tree.empty()) {
+    TreeNode *temp = tree.top();
+    tree.pop();
+    res.push_back(temp->val);
+    if (temp->right) {
+      tree.push(temp->right);
+    }
+    if (temp->left) {
+      tree.push(temp->left);
+    }
+  }
+  return res;
+}
+
+void pTraversal(std::vector<int> &res, TreeNode *node) {
+  if (!node) return;
+  res.push_back(node->val);
+  pTraversal(res, node->left);
+  pTraversal(res, node->right);
+}
+
+std::vector<int> Tree::preorderTraversaldd(TreeNode *root) {
+  std::vector<int> res;
+  pTraversal(res, root);
+  return res;
+}
+
+std::vector<int> Tree::inorderTraversal(TreeNode *root) {
+  std::vector<int> res;
+  std::stack<TreeNode *> tree;
+  TreeNode *cur = root;
+  while (!tree.empty() || cur) {
+    if (cur) {
+      tree.push(cur);
+      cur = cur->left;
+    } else {
+      cur = tree.top();
+      res.push_back(cur->val);
+      tree.pop();
+      cur = cur->right;
+    }
+  }
+  return res;
+}
+
+void inTraversal(std::vector<int> &res, TreeNode *node) {
+  if (node == nullptr) return;
+  inTraversal(res, node->left);
+  res.push_back(node->val);
+  inTraversal(res, node->right);
+}
+
+std::vector<int> Tree::inorderTraversaldd(TreeNode *root) {
+  std::vector<int> res;
+  inTraversal(res, root);
+  return res;
+}
+
+std::vector<int> Tree::postorderTraversal(TreeNode *root) {
+  std::stack<TreeNode *> tree;
+  std::stack<TreeNode *> tree2;
+  std::vector<int> res;
+  if (root) tree.push(root);
+  while (!tree.empty()) {
+    auto node = tree.top();
+    tree.pop();
+    if (node->left) {
+      tree.push(node->left);
+    }
+    if (node->right) {
+      tree.push(node->right);
+    }
+    tree2.push(node);
+  }
+  while (!tree2.empty()) {
+    auto temp = tree2.top();
+    res.push_back(temp->val);
+    tree2.pop();
+  }
+  return res;
+}
+
+void posTraversal(std::vector<int> &res, TreeNode *node) {
+  if (node == nullptr) return;
+  posTraversal(res, node->left);
+  posTraversal(res, node->right);
+  res.push_back(node->val);
+}
+std::vector<int> Tree::postorderTraversaldd(TreeNode *root) {
+  std::vector<int> res;
+  posTraversal(res, root);
+  return res;
+}
+
+bool Tree::hasPathSum(TreeNode *root, int sum) {
+  if (root == nullptr) {
+    return false;
+  } else {
+    std::cout << "current node :" << root->val << std::endl;
+  }
+  int target = sum - root->val;
+  if (root->left == nullptr && root->right == nullptr && target == 0) {
+    std::cout << "successed in node:" << root->val << std::endl;
+    return true;
+  }
+  bool res1 = hasPathSum(root->left, target);
+  bool res2 = hasPathSum(root->right, target);
+  return res1 || res2;
+
+  // return hasPathSum(root->left,target) || hasPathSum(root->right,target);
+}
+
+void midTraversol(std::vector<int> &res, TreeNode *head) {
+  if (head == nullptr) return;
+  midTraversol(res, head->left);
+  res.push_back(head->val);
+  midTraversol(res, head->right);
+  return;
+}
+
+bool Tree::isSymmetrical(TreeNode *pRoot) {
+  std::vector<int> res;
+  midTraversol(res, pRoot);
+  if (res.empty()) return true;
+  bool same = true;
+  for (int i = 0; i < res.size() / 2; ++i) {
+    if (res[i] != res[res.size() - 1 - i]) {
+      same = false;
+      break;
+    }
+  }
+  return same;
+}
+
+TreeNode *Tree::mergeTrees(TreeNode *t1, TreeNode *t2) {
+  std::cout << "start t1:" << (t1 ? t1->val : 0) << ",t2:" << (t2 ? t2->val : 0) << std::endl;
+  if (t1 == nullptr) return t2;
+  if (t2 == nullptr) return t1;
+  TreeNode *head = new TreeNode(t1->val + t2->val);
+  head->left = mergeTrees(t1->left, t2->left);
+  std::cout << "cur t1:" << (t1 ? t1->val : 0) << ",t2:" << (t2 ? t2->val : 0) << std::endl;
+  head->right = mergeTrees(t1->right, t2->right);
+  std::cout << "finish t1:" << t1->val << ",t2:" << t2->val << std::endl;
+  return head;
+}
+
+TreeNode *Tree::Mirror(TreeNode *pRoot) {
+  // write code here
+  std::cout << "cur node is :" << (pRoot ? pRoot->val : 0) << std::endl;
+  if (pRoot == nullptr) return nullptr;
+  TreeNode *head = new TreeNode(pRoot->val);
+  head->left = Mirror(pRoot->right);
+  std::cout << "mid node is :" << (pRoot ? pRoot->val : 0) << std::endl;
+  head->right = Mirror(pRoot->left);
+  return head;
+}
+
+long pre = 0;
+//中序遍历
+bool Tree::isValidBST(TreeNode *root) {
+  if (root) std::cout << "cur node is:" << root->val << std::endl;
+  if (root == NULL) return true;
+  //先进入左子树
+  if (!isValidBST(root->left)) return false;
+  if (root) std::cout << "cur node is:" << root->val << std::endl;
+  if (root->val <= pre) return false;
+  //更新最值
+  pre = root->val;
+  //再进入右子树
+  if (!isValidBST(root->right)) return false;
+  if (root) std::cout << "cur node is:" << root->val << std::endl;
+  return true;
+}
+
+void inorderTraversalnew(std::vector<int> &res, TreeNode *head) {
+  if (head == nullptr) return;
+  inorderTraversalnew(res, head->left);
+  res.push_back(head->val);
+  inorderTraversalnew(res, head->right);
+}
+bool Tree::isValidBST1(TreeNode *root) {
+  std::vector<int> res;
+  inorderTraversalnew(res, root);
+  for (int i = 0; i < res.size() - 1; ++i) {
+    if (res[i + 1] < res[i]) return false;
+  }
+  return true;
+}
+
+bool isCompleteTree(TreeNode *root) {
+  std::queue<TreeNode *> node_queue;
+  bool flag = false;
+  if (root == nullptr) return true;
+  node_queue.push(root);
+  while (!node_queue.empty()) {
+    int size = node_queue.size();
+    for (int i = 0; i < size; ++i) {
+      TreeNode *temp_node = node_queue.front();
+      node_queue.pop();
+      if(temp_node == nullptr) {
+        flag = true;
+      } else {
+        if (flag) return false;
+        node_queue.push(temp_node->left);
+        node_queue.push(temp_node->right);
+      }
+    }
+  }
+  return true;
+}
+
+}  // namespace niu_ke

@@ -44,9 +44,25 @@ class Tree {
  public:
   Tree();
   ~Tree();
-  std::vector<int> inorderTraversal(TreeNode* root);
   TreeNode* CreateTree(std::vector<std::vector<Node>>& node_nums);
+  TreeNode* CreateTreeSample();
+  TreeNode* CreateTreeSample1();
+  std::vector<int> preorderTraversal(TreeNode* root); 
+  std::vector<int> preorderTraversaldd(TreeNode* root);
+  std::vector<int> inorderTraversal(TreeNode* root);
+  std::vector<int> inorderTraversaldd(TreeNode* root);
+  std::vector<int> postorderTraversal(TreeNode* root);
+  std::vector<int> postorderTraversaldd(TreeNode* root);
+  std::vector<int> levelOrder(TreeNode* root);
+  bool hasPathSum(TreeNode* root, int sum);
+  bool isSymmetrical(TreeNode *pRoot);
+  TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2);
+  TreeNode* Mirror(TreeNode* pRoot);
+  bool isValidBST(TreeNode* root);
+  bool isValidBST1(TreeNode* root);
+  bool isCompleteTree(TreeNode* root);
  private:
+  TreeNode *head_;
   
   
 };
